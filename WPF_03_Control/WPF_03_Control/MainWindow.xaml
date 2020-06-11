@@ -1,0 +1,128 @@
+﻿<Window x:Class="WPF_03_Control.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_03_Control"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="692.683" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="File"/>
+            <MenuItem Header="Edit"/>
+            <MenuItem Header="Options"/>
+            <MenuItem Header="Help"/>
+        </Menu>
+
+        <Border Grid.Row="1" BorderBrush="#673ab7" BorderThickness="2" Margin="5" CornerRadius="10">
+            <StackPanel Grid.Row="1">
+                <Border DockPanel.Dock="Top" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10" Margin="5" Background="#673ab7">
+                    <Label Height="40" 
+
+                   Content="Control Panel" 
+                   Foreground="White" 
+                   VerticalContentAlignment="Center" 
+                   HorizontalContentAlignment="Center"
+                   FontSize="22"
+             ></Label>
+                </Border>
+                <TextBlock FontSize="16" 
+                       Foreground="#673ab7"
+                       Padding="10"> 
+                <Hyperlink NavigateUri="#">
+                    View all customers
+                </Hyperlink>
+                </TextBlock>
+                <TextBlock FontSize="16"
+                       Foreground="#673ab7"
+                       Padding="10"> 
+                <Hyperlink NavigateUri="#">
+                    Create new customers
+                </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#673ab7" BorderThickness="2" Margin="5" CornerRadius="10">
+            <DockPanel>
+                <Border DockPanel.Dock="Top" BorderBrush="#673ab7" BorderThickness="1" CornerRadius="10" Margin="5" Background="#673ab7">
+                    <Label Height="40"
+                   Content="Workspace" 
+                   Foreground="White" 
+                   VerticalContentAlignment="Center" 
+                   HorizontalContentAlignment="Center"
+                   
+                   FontSize="22"
+                       
+            ></Label>
+
+                </Border>
+                <TabControl Margin="10">
+                    <TabItem Header="All customers">
+                        <Grid>
+                            <ListBox x:Name="lbCustomers" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                        
+                                            <Label Grid.Column="0" Content="{Binding CustomerType}"/>
+                                            <Label Grid.Column="1" Content="{Binding FirstName}"/>
+                                            <Label Grid.Column="2" Content="{Binding LastName}"/>
+                                            <Label Grid.Column="3" Content="{Binding Email}"/>
+                                        
+                                        </Grid>
+                                        
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                        
+                    </TabItem>
+                    <TabItem Header="Add customer">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Customer Type:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Padding="20 0 0 0"></Label>
+                            <Label Content="First Name:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Padding="20 0 0 0" Grid.Row="1"></Label>
+                            <Label Content="Last Name:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Padding="20 0 0 0" Grid.Row="2"></Label>
+                            <Label Content="E-Mail:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Padding="20 0 0 0" Grid.Row="3"></Label>
+
+                            <ComboBox x:Name="cbCustomerType"  Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="240" VerticalContentAlignment="Center" FontSize="18"></ComboBox>
+                            <TextBox x:Name="tbFirstName" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="240" VerticalContentAlignment="Center" FontSize="18"></TextBox>
+                            <TextBox x:Name="tbLastName" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="240" VerticalContentAlignment="Center" FontSize="18"></TextBox>
+                            <TextBox x:Name="tbEmail" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="240" VerticalContentAlignment="Center" FontSize="18"></TextBox>
+
+                            <Button x:Name="btnSave" VerticalContentAlignment="Center" Grid.Row="4" Grid.ColumnSpan="2" Width="150" Height="30" Content="Save" FontSize="18" Background="#673ab7" Foreground="White" Click="SaveCustomer_Click"></Button>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

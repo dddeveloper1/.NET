@@ -1,0 +1,34 @@
+﻿<Window x:Class="WPF_02_Paint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_02_Paint"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" x:Name="stackpanel">
+            <Label VerticalContentAlignment="Center" FontSize="17" VerticalAlignment="Center">Mode:</Label>
+            <RadioButton GroupName="A" Margin="5" VerticalAlignment="Center" Checked="RadioButton_Checked" Content="EraseByStroke"/>
+            <RadioButton GroupName="A" Margin="5" VerticalAlignment="Center" Checked="RadioButton_Checked" Content="GestureOnly"/>
+            <RadioButton x:Name="start" GroupName="A" Margin="5" VerticalAlignment="Center" Checked="RadioButton_Checked" Content="Ink"/>
+            <Separator></Separator>
+            <Button Content="Open" Width="100" VerticalAlignment="Center" Margin="10 0" Click="Open_Click"></Button>
+            <Button Content="Save" Width="100" VerticalAlignment="Center" Margin="10 0" Click="Save_Click"></Button>
+            <ComboBox x:Name="cbColor" Width="100" VerticalAlignment="Center" Margin="10 0" SelectionChanged="Color_SelectionChanged">
+                <Label Content="Red"/>
+                <Label Content="Green"/>
+                <Label Content="Blue"/>
+            </ComboBox>
+            <ComboBox x:Name="cbSize" Width="100" VerticalAlignment="Center" Margin="10 0" SelectionChanged="Size_SelectionChanged"></ComboBox>
+        </StackPanel>
+        <InkCanvas Grid.Row="1" x:Name="ink"/>
+
+    </Grid>
+</Window>
+  

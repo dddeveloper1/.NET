@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPF_01_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_01_Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" 
+        Height="600" Width="400"
+        MinWidth="300" MinHeight="500"
+        FontSize="20" FontWeight="Bold"
+        Background="#e0e0e0" WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition  Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>   
+            <RowDefinition Height="1.8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Buttons figure-->
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="5" Content="1" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="5" Grid.Column="1" Content="2" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="5" Grid.Column="2" Content="3" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="4" Grid.Column="0" Content="4" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="4" Grid.Column="1" Content="5" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="4" Grid.Column="2" Content="6" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="3" Grid.Column="0" Content="7" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="3" Grid.Column="1" Content="8" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="3" Grid.Column="2" Content="9" Click="Figure_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="White" Grid.Row="6" Grid.Column="1" Content="0" Click="Figure_Click"/>
+        
+        <!--Buttons operations-->
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="6" Grid.Column="2" FontWeight="Regular" Content="=" Grid.ColumnSpan="2" Click="Equal_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="5" Grid.Column="3" FontWeight="Regular" Content="+" Click="Operation_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="4" Grid.Column="3" FontWeight="Regular" Content="-" Click="Operation_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="3" Grid.Column="3" FontWeight="Regular" Content="*" Click="Operation_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="2" Grid.Column="3" FontWeight="Regular" Content="/" Click="Operation_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="6" Grid.Column="0" FontWeight="Regular" Content="," Click="Koma_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="2" Grid.Column="2" FontWeight="Regular" Content="&lt;" Click="Back_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="2" Grid.Column="1" FontWeight="Regular" Content="С" Click="C_Click"/>
+        <Button BorderThickness="0" Margin="1" Background="WhiteSmoke" Grid.Row="2" Grid.Column="0" FontWeight="Regular" Content="СE" Click="CE_Click"/>
+
+        <Label x:Name="lblTemp" Grid.Row="0"  Grid.ColumnSpan="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontWeight="Regular"/>
+        <Label x:Name="lblResult" Grid.Row="1" Grid.ColumnSpan="4" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="35"/>
+
+    </Grid>
+</Window> 
